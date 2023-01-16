@@ -17,11 +17,11 @@ export default function FlashCardsPage() {
     setAllCards(shuffledCards);
   }
 
-  function handleRadioShowTitle() {
-    return setShowTitle(true);
+  function handleRadioShowTitleCLick() {
+    setShowTitle(true);
   }
-  function handleRadioShowDescription() {
-    return setShowTitle(false);
+  function handleRadioShowDescriptionClick() {
+    setShowTitle(false);
   }
 
   return (
@@ -33,22 +33,31 @@ export default function FlashCardsPage() {
         </div>
         <div className="flex items-center justify-center gap-3 m-4">
           <RadioButton
-            radioButtonName="showContent"
-            radioButtonDescription="Show Title"
-            onRadioButtonClick={handleRadioShowTitle}
+            id="radioButtonShowTitle"
+            name="showInfo"
             buttonChecked={showTitle}
-          />
+            onButtonClick={handleRadioShowTitleCLick}
+          >
+            Show Title
+          </RadioButton>
           <RadioButton
-            radioButtonName="showContent"
-            radioButtonDescription="Show Description"
-            onRadioButtonClick={handleRadioShowDescription}
+            id="radioButtonShowDescription"
+            name="showInfo"
             buttonChecked={!showTitle}
-          />
+            onButtonClick={handleRadioShowDescriptionClick}
+          >
+            Show Description
+          </RadioButton>
         </div>
         <FlashCards>
           {allCards.map(({ id, title, description }) => {
             return (
-              <FlashCard key={id} title={title} description={description} />
+              <FlashCard
+                key={id}
+                title={title}
+                description={description}
+                showFlashCardTitle={showTitle}
+              />
             );
           })}
         </FlashCards>

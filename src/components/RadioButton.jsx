@@ -1,29 +1,27 @@
 import { getNewId } from '../services/idService';
 
 export default function RadioButton({
-  radioButtonName = 'Radio Button Name',
-  radioButtonId = getNewId(),
-  radioButtonDescription = 'Button Description',
-  onRadioButtonClick = null,
+  id = getNewId(),
+  name = 'radioButtonName',
+  ButtonDescription = 'Button Description',
   buttonChecked = false,
+  onButtonClick = null,
 }) {
-  function handleRadioButtonClick() {
-    if (onRadioButtonClick) {
-      return { onRadioButtonClick };
+  function handleRadioButtonChange() {
+    if (onButtonClick) {
+      onButtonClick();
     }
   }
   return (
-    <div
-      className="flex items-center justify-center gap-1"
-      onClick={handleRadioButtonClick}
-    >
+    <div className="flex items-center justify-center gap-1">
       <input
+        id={id}
         type="radio"
-        name={radioButtonName}
-        id={radioButtonId}
+        name={name}
         checked={buttonChecked}
+        onChange={handleRadioButtonChange}
       ></input>
-      <label htmlFor={radioButtonId}>{radioButtonDescription}</label>
+      <label htmlFor={id}>{ButtonDescription}</label>
     </div>
   );
 }

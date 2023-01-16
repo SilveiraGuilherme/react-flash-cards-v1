@@ -4,7 +4,7 @@ export default function Button({
 }) {
   function handleButtonClick() {
     if (onButtonClick) {
-      return { onButtonClick };
+      onButtonClick();
     }
   }
   return (

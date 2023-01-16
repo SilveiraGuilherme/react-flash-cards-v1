@@ -22,7 +22,7 @@ react-flash-cards-v1 - roteiro
 (x) Criar botão para embaralhar os cards com base em:
    https://stackoverflow.com/a/12646864
 
-() Fazer com que todos os cards exibam o título 
+(x) Fazer com que todos os cards exibam o título 
    ou descrição com radio buttons
 
 () Sincronizar o estado de FlashCardsPage e FlashCard com useEffect
